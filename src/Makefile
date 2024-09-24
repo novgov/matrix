@@ -44,7 +44,7 @@ style: clean
 
 valgrind: test
 ifeq ($(shell uname -s), Linux)
-	valgrind -s --leak-check=yes --track-origins=yes ./$(TEST_BIN)
+	valgrind -s --leak-check=yes --track-origins=yes --verbose --show-leak-kinds=all ./$(TEST_BIN)
 else
 	leaks --atExit -- ./$(TEST_BIN)
 endif

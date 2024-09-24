@@ -83,7 +83,8 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
     ret = 2;
     if (A->rows == 1) {
       ret = s21_create_matrix(A->rows, A->rows, result);
-      if (ret == 0) result->matrix[0][0] = 1.0 / A->matrix[0][0];
+      if (ret == 0)
+        result->matrix[0][0] = 1.0 / A->matrix[0][0];
     }
     double det = 0.0;
     s21_determinant(A, &det);

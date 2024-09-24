@@ -29,6 +29,7 @@ START_TEST(test_not_sqare) {
     ck_assert_int_eq(code, CALC_ERROR);
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -71,6 +72,9 @@ START_TEST(test_normal) {
     s21_remove_matrix(&result);
     s21_remove_matrix(&expected);
   }
+  s21_remove_matrix(&m);
+  s21_remove_matrix(&result);
+  s21_remove_matrix(&expected);
 }
 END_TEST
 
