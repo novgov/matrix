@@ -8,11 +8,15 @@ int s21_eq_matrix(matrix_t *A, matrix_t *B) {
       for (int j = 0; j < A->columns && ret; j++) {
         if (round(A->matrix[i][j] * pow(10, 7)) !=
             round(B->matrix[i][j] * pow(10, 7))) {
+          s21_remove_matrix(A);
+          s21_remove_matrix(B);
           ret = FAILURE;
         }
       }
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(B);
     ret = FAILURE;
   }
   return ret;

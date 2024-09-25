@@ -17,6 +17,7 @@ START_TEST(create_1) {
     ck_assert_int_eq(m.columns, cols);
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -25,6 +26,7 @@ START_TEST(create_2) {
   const int cols = 10;
   matrix_t m = {0};
   ck_assert_int_eq(s21_create_matrix(rows, cols, &m), INCORRECT_MATRIX);
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -33,6 +35,7 @@ START_TEST(create_3) {
   const int cols = 0;
   matrix_t m = {0};
   ck_assert_int_eq(s21_create_matrix(rows, cols, &m), INCORRECT_MATRIX);
+  s21_remove_matrix(&m);
 }
 END_TEST
 

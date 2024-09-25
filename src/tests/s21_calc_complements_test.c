@@ -8,7 +8,10 @@ START_TEST(test_one_by_one) {
     int code = s21_calc_complements(&m, &result);
     ck_assert_int_eq(code, CALC_ERROR);
     s21_remove_matrix(&m);
+    s21_remove_matrix(&result);
   }
+  s21_remove_matrix(&m);
+  s21_remove_matrix(&result);
 }
 END_TEST
 

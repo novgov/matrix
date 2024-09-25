@@ -10,8 +10,13 @@ int s21_transpose(matrix_t *A, matrix_t *result) {
           result->matrix[j][i] = A->matrix[i][j];
         }
       }
+    } else {
+      s21_remove_matrix(A);
+      s21_remove_matrix(result);
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(result);
     ret = 1;
   }
   return ret;
@@ -21,22 +26,31 @@ int s21_calc_complements(matrix_t *A, matrix_t *result) {
   int ret = 0;
   if (s21_is_empty(A) == 0) {
     if (A->rows == A->columns) {
-      s21_create_matrix(A->columns, A->rows, result);
-      for (int i = 0; i < A->rows; i++) {
-        for (int j = 0; j < A->columns; j++) {
-          matrix_t minor = {0};
-          double determinant = 0;
-          s21_create_matrix(A->columns - 1, A->rows - 1, &minor);
-          s21_get_matrix(i, j, A, &minor);
-          s21_determinant(&minor, &determinant);
-          result->matrix[i][j] = pow(-1, (i + j)) * determinant;
-          s21_remove_matrix(&minor);
+      ret = s21_create_matrix(A->columns, A->rows, result);
+      if (ret == 0) {
+        for (int i = 0; i < A->rows; i++) {
+          for (int j = 0; j < A->columns; j++) {
+            matrix_t minor = {0};
+            double determinant = 0;
+            s21_create_matrix(A->columns - 1, A->rows - 1, &minor);
+            s21_get_matrix(i, j, A, &minor);
+            s21_determinant(&minor, &determinant);
+            result->matrix[i][j] = pow(-1, (i + j)) * determinant;
+            s21_remove_matrix(&minor);
+          }
         }
+      } else {
+        s21_remove_matrix(A);
+        s21_remove_matrix(result);
       }
     } else {
+      s21_remove_matrix(A);
+      s21_remove_matrix(result);
       ret = 2;
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(result);
     ret = 1;
   }
   return ret;
@@ -83,8 +97,7 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
     ret = 2;
     if (A->rows == 1) {
       ret = s21_create_matrix(A->rows, A->rows, result);
-      if (ret == 0)
-        result->matrix[0][0] = 1.0 / A->matrix[0][0];
+      if (ret == 0) result->matrix[0][0] = 1.0 / A->matrix[0][0];
     }
     double det = 0.0;
     s21_determinant(A, &det);

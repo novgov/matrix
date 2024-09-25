@@ -7,8 +7,7 @@ START_TEST(determinant1) {
   ck_assert_int_eq(ret, OK);
   if (ret == OK) {
     for (int i = 0; i < size; i++)
-      for (int j = 0; j < size; j++)
-        m.matrix[i][j] = j;
+      for (int j = 0; j < size; j++) m.matrix[i][j] = j;
 
     double res = 0;
     int code = s21_determinant(&m, &res);
@@ -17,6 +16,7 @@ START_TEST(determinant1) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -27,8 +27,7 @@ START_TEST(determinant2) {
   ck_assert_int_eq(ret, OK);
   if (ret == OK) {
     for (int i = 0; i < size; i++)
-      for (int j = 0; j < size; j++)
-        m.matrix[i][j] = j + i;
+      for (int j = 0; j < size; j++) m.matrix[i][j] = j + i;
 
     double res = 0;
     int code = s21_determinant(&m, &res);
@@ -37,6 +36,7 @@ START_TEST(determinant2) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -70,6 +70,7 @@ START_TEST(determinant3) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -96,6 +97,7 @@ START_TEST(determinant4) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -117,6 +119,7 @@ START_TEST(determinant5) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -135,6 +138,7 @@ START_TEST(determinant6) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 
@@ -167,6 +171,7 @@ START_TEST(determinant8) {
 
     s21_remove_matrix(&m);
   }
+  s21_remove_matrix(&m);
 }
 END_TEST
 

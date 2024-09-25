@@ -105,8 +105,7 @@ START_TEST(test_normal) {
   matrix_t expected = {0};
   int codec1, codec2;
   codec1 = s21_create_matrix(3, 3, &m);
-  if (codec1)
-    codec2 = s21_create_matrix(3, 3, &expected);
+  if (codec1) codec2 = s21_create_matrix(3, 3, &expected);
 
   if (codec1 && codec2) {
     m.matrix[0][0] = 2;
