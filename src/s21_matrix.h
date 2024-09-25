@@ -32,4 +32,6 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result);
 
 int s21_is_empty(matrix_t *matrix);
 
+void s21_clear_shit(int rows, double **matrix);
+
 #endif

@@ -25,21 +25,20 @@ START_TEST(not_eq) {
   const int rows = rand() % 100 + 1;
   const int cols = rand() % 100 + 1;
   s21_create_matrix(rows, cols, &m);
+
   matrix_t mtx = {0};
-  const int rows1 = rand() % 100 + 1;
-  const int cols1 = rand() % 100 + 1;
+  const int rows1 = rows;
+  const int cols1 = cols;
   s21_create_matrix(rows1, cols1, &mtx);
 
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
-      m.matrix[i][j] = get_rand(DBL_MIN, DBL_MAX) + 1;
+      m.matrix[i][j] = get_rand(DBL_MIN, DBL_MAX);
     }
   }
-  for (int i = 0; i < rows1; i++) {
-    for (int j = 0; j < cols1; j++) {
-      mtx.matrix[i][j] = get_rand(DBL_MIN, DBL_MAX);
-    }
-  }
+
+  mtx.matrix[0][0] = get_rand(DBL_MIN, DBL_MAX) + 1;
+
   ck_assert_int_eq(s21_eq_matrix(&m, &mtx), 0);
   s21_remove_matrix(&m);
   s21_remove_matrix(&mtx);
@@ -69,6 +68,7 @@ START_TEST(zero_matrix) {
   int result = s21_eq_matrix(&A, &B);
   ck_assert_int_eq(0, result);
 }
+END_TEST
 
 START_TEST(zero_matrix_1) {
   matrix_t A = {0};
@@ -80,6 +80,7 @@ START_TEST(zero_matrix_1) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_1) {
   matrix_t A = {0};
@@ -93,6 +94,7 @@ START_TEST(casual_matrix_1) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_2) {
   matrix_t A = {0};
@@ -106,6 +108,7 @@ START_TEST(casual_matrix_2) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_3) {
   matrix_t A = {0};
@@ -125,6 +128,7 @@ START_TEST(casual_matrix_3) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_4) {
   matrix_t A = {0};
@@ -144,6 +148,7 @@ START_TEST(casual_matrix_4) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_5) {
   matrix_t A = {0};
@@ -163,6 +168,7 @@ START_TEST(casual_matrix_5) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_6) {
   matrix_t A = {0};
@@ -182,6 +188,7 @@ START_TEST(casual_matrix_6) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_7) {
   matrix_t A = {0};
@@ -201,6 +208,7 @@ START_TEST(casual_matrix_7) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 START_TEST(casual_matrix_8) {
   matrix_t A = {0};
@@ -220,6 +228,7 @@ START_TEST(casual_matrix_8) {
   s21_remove_matrix(&A);
   s21_remove_matrix(&B);
 }
+END_TEST
 
 Suite *suite_eq_matrix(void) {
   Suite *s = suite_create("suite_eq_matrix");

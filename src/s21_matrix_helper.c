@@ -4,6 +4,7 @@ int s21_is_empty(matrix_t *matrix) {
   int ret = 0;
   if (matrix == NULL || matrix->matrix == NULL || matrix->rows <= 0 ||
       matrix->columns <= 0) {
+    s21_remove_matrix(matrix);
     ret = 1;
   } else {
     ret = 0;

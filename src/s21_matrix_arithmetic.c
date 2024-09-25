@@ -12,9 +12,15 @@ int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
         }
       }
     } else {
+      s21_remove_matrix(A);
+      s21_remove_matrix(B);
+      s21_remove_matrix(result);
       ret = INCORRECT_MATRIX;
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(B);
+    s21_remove_matrix(result);
     ret = INCORRECT_MATRIX;
   }
   return ret;
@@ -32,9 +38,15 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
         }
       }
     } else {
+      s21_remove_matrix(A);
+      s21_remove_matrix(B);
+      s21_remove_matrix(result);
       ret = INCORRECT_MATRIX;
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(B);
+    s21_remove_matrix(result);
     ret = INCORRECT_MATRIX;
   }
   return ret;
@@ -51,6 +63,8 @@ int s21_mult_number(matrix_t *A, double number, matrix_t *result) {
       }
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(result);
     ret = INCORRECT_MATRIX;
   }
   return ret;
@@ -70,9 +84,15 @@ int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
         }
       }
     } else {
+      s21_remove_matrix(A);
+      s21_remove_matrix(B);
+      s21_remove_matrix(result);
       ret = INCORRECT_MATRIX;
     }
   } else {
+    s21_remove_matrix(A);
+    s21_remove_matrix(B);
+    s21_remove_matrix(result);
     ret = INCORRECT_MATRIX;
   }
   return ret;
