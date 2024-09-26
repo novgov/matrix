@@ -50,7 +50,7 @@ START_TEST(sub_matrix1) {
   }
 
   matrix_t res = {0};
-  ck_assert_int_eq(s21_sub_matrix(&m, &mtx, &res), CALC_ERROR);
+  ck_assert_int_eq(s21_sub_matrix(&m, &mtx, &res), 1);
   s21_remove_matrix(&m);
   s21_remove_matrix(&mtx);
   s21_remove_matrix(&res);
