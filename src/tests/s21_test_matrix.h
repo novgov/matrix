@@ -23,4 +23,4 @@ void run_test(void);
 void run_testcase(Suite *testcase);
 double get_rand(double min, double max);
 
-#endif  // SRC_UNIT_TESTS_S21_MATRIX_H_
+#endif // SRC_UNIT_TESTS_S21_MATRIX_H_
